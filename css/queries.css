@@ -1,0 +1,182 @@
+@media (max-width: 68em) {
+  html {
+    font-size: 50%;
+  }
+
+  .container {
+    padding: 0 4rem;
+  }
+}
+
+@media (max-width: 54em) {
+  html {
+    font-size: 47%;
+  }
+
+  .container {
+    padding: 0 4rem;
+  }
+
+  .main-nav-list {
+    gap: 7rem;
+  }
+
+  .hero-text h1 {
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 46em) {
+  html {
+    font-size: 40%;
+  }
+
+  .container {
+    padding: 0 4rem;
+  }
+
+  .hero-vricap-img {
+    width: 83%;
+  }
+}
+
+@media (max-width: 40em) {
+  html {
+    font-size: 37%;
+  }
+
+  .container {
+    padding: 0 4rem;
+  }
+
+  .main-nav-list {
+    gap: 5rem;
+  }
+
+  .main--logo {
+    max-height: 32rem;
+    top: -5rem;
+  }
+}
+
+@media (max-width: 33em) {
+  html {
+    font-size: 33%;
+  }
+}
+
+@media (max-width: 30em) {
+  html {
+    font-size: 28%;
+  }
+
+  .hero-section {
+    height: 100vh;
+  }
+
+  .main--nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40%;
+    height: auto;
+    background-image: linear-gradient(
+      to right,
+      rgba(97, 91, 91, 0.6),
+      rgba(53, 40, 40, 0.6)
+    );
+    backdrop-filter: blur(4px);
+    transform: translateX(100%);
+    transition: all 0.5s ease-in;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    visibility: hidden;
+  }
+
+  .open-nav .main--nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .main-nav-list {
+    display: block;
+    text-align: center;
+  }
+
+  .main-nav-link {
+    margin: 6rem 0;
+  }
+
+  .btn-mobile-nav {
+    display: block;
+    margin-right: 5rem;
+    z-index: 99999999;
+  }
+
+  .open-nav .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .open-nav .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  .contact-section {
+    margin-bottom: 3rem;
+  }
+
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info {
+    margin-top: 4rem;
+    row-gap: 7rem;
+  }
+
+  .project-section {
+    margin-bottom: -10rem;
+  }
+
+  .about-text {
+    margin-right: 0;
+  }
+
+  .about-text p {
+    font-size: 1.9rem;
+  }
+
+  .container {
+    padding: 0 5rem;
+  }
+}
+
+@media (max-width: 30em) {
+  html {
+    font-size: 27%;
+  }
+
+  .main--logo {
+    max-height: 40rem;
+    top: -70%;
+    left: 50%;
+    transform: translate(-50%, 0);
+  }
+
+  .hobby-box {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-box {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-last-row {
+    gap: 13rem;
+  }
+}

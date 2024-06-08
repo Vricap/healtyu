@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meditation Space</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/queries.css">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Include AOS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <style>
+    .meditasi-heading {
+      font-family: 'Alegreya SC', serif;
+      color: #C4A15D;
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 4rem; /* Menurunkan tulisan lebih jauh */
+    }
+
+    .header-bottom {
+      background-color: #ffffff; /* Warna putih bersih */
+      padding: 40px 0; /* Menambahkan padding agar lebih jauh dari atas */
+      margin-top: 80px; /* Menambahkan margin atas */
+    }
+
+    .meditasi-image {
+      display: block;
+      margin: 0 auto;
+      width: 260px; /* Sesuaikan dengan ukuran gambar */
+      height: 280px; /* Sesuaikan dengan ukuran gambar */
+    }
+
+    .experience-text {
+      font-family: 'Alegreya SC', serif;
+      color: #C4A15D;
+      text-align: center;
+      font-size: 35px;
+      margin-top: 40px; /* Menambahkan jarak yang sedikit lebih besar dari gambar */
+    }
+
+    .description-text {
+      font-family: 'alike angular', sans-serif; /* Mengatur font menjadi alike angular */
+      color: #747474; /* Mengatur warna teks menjadi #747474 */
+      font-size: 16px; /* Mengatur ukuran teks menjadi 16 */
+      text-align: center; /* Pusatkan teks */
+      margin-top: 20px; /* Menambahkan jarak dari teks sebelumnya */
+      line-height: 1.5; /* Menambahkan jarak antar baris */
+      padding: 20px 0;
+      margin-left: 160px;
+      margin-right: 160px;
+    }
+    
+    .about-image {
+      display: block;
+      width: 450px; /* Sesuaikan dengan ukuran gambar */
+      height: 324px; /* Sesuaikan dengan ukuran gambar */
+      border-right: 28px solid #C4A15D; /* Warna border bisa disesuaikan */
+      border-bottom: 28px solid #C4A15D; /* Warna border bisa disesuaikan */
+      margin-left: 870px;
+      margin-top: 60px;
+    }
+
+    .about2-image {
+      display: block;
+      width: 450px; /* Sesuaikan dengan ukuran gambar */
+      height: 324px; /* Sesuaikan dengan ukuran gambar */
+      border-right: 28px solid #C4A15D; /* Warna border bisa disesuaikan */
+      border-bottom: 28px solid #C4A15D; /* Warna border bisa disesuaikan */
+      margin-right: 850px;
+      margin-left: 300px;
+      margin-top: -325px;
+    }
+
+    .about-section {
+      width: 100vw;
+      height: 15vw;
+      background-color: #FFF8EA; /* Latar belakang untuk bagian mentor */
+      display: flex;
+      justify-content: center; /* Pusatkan konten secara horizontal */
+      box-sizing: border-box;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
+      text-align: center; /* Tambahkan properti text-align */
+      margin-bottom: 0; /* Pastikan tidak ada margin bawah */
+      margin-top: 60px;
+    }
+    .description2-text {
+      font-family: 'alike angular', sans-serif; /* Mengatur font menjadi alike angular */
+      color: #747474; /* Mengatur warna teks menjadi #747474 */
+      font-size: 16px; /* Mengatur ukuran teks menjadi 16 */
+      text-align: center; /* Pusatkan teks */
+      margin-top: 180px; /* Menambahkan jarak dari teks sebelumnya */
+      line-height: 1.5; /* Menambahkan jarak antar baris */
+      padding: 20px 0;
+      margin-left: 160px;
+      margin-right: 160px;
+    }
+
+    .experience2-text {
+      font-family: 'Alegreya SC', serif;
+      color: #C4A15D;
+      text-align: center; /* Pusatkan teks */
+      font-size: 35px;
+      margin-top: 40px; /* Menambahkan jarak yang sedikit lebih besar dari gambar */
+    }
+    .image-container {
+  display: flex;
+  align-items: center;
+}
+
+.left-image,
+.right-image,
+.right-image {
+  margin-left: 19px; /* Sesuaikan nilai margin-left */
+  margin-right: 5px; /* Sesuaikan nilai margin-right */
+}
+
+
+  </style>
+</head>
+<body>
+  <header class="main--header">
+    <a href="#"><img class="main--newlogo" src="img/newlogo.png" /></a>
+    <nav class="main--nav">
+      <ul class="main-nav-list">
+        <li><a class="main-nav-link" href="about.html">About</a></li>
+        <li><a class="main-nav-link" href="food.html">Food</a></li>
+        <li><a class="main-nav-link" href="calorie.html">Calorie</a></li>
+        <li id="user-info" style="display: none;">
+          <img id="user-pic" src="" alt="User picture" style="width: 30px; height: 30px; border-radius: 50%;">
+          <span id="user-name"></span> (<span id="user-email"></span>)
+        </li>
+        <li><button id="logout-btn" style="display: none; cursor: pointer;">Log Out</button></li>
+      </ul>
+    </nav>
+    <button class="btn-mobile-nav">
+      <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+      <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+    </button>
+  </header>
+
+  <!-- Tambahkan div untuk header bawah -->
+  <div class="header-bottom" data-aos="fade-down">
+    <div class="meditasi-heading">F O O D</div>
+  </div>
+
+  <div class="image-container">
+    <img class="left-image" src="img/food1.png" alt="Left Image">
+    <img class="right-image" src="img/food2.png" alt="Right Image">
+    <img class="right-image" src="img/food3.png" alt="Right Image">
+    <img class="right-image" src="img/food4.png" alt="Right Image">
+    <img class="right-image" src="img/food5.png" alt="Right Image">
+  </div>
+
+
+  <div class="description-text" data-aos="fade-left">
+    Dalam perjalanan kita menuju kesehatan dan kebugaran, makanan yang kita konsumsi memainkan peran penting. Tidak hanya bahan bakar kegiatan sehari-hari kita, tetapi juga memiliki kekuatan untuk meningkatkan suasana hati kita, meningkatkan kejernihan mental kita, dan mencegah segudang masalah kesehatan. Panduan ini adalah pintu gerbang Anda untuk memahami dan merangkul kebiasaan makan sehat yang berkelanjutan dan memuaskan.
+  </div>
+
+<!-- Tambahkan tulisan Experience Serene Luxury and comfort at HealthyU -->
+<div class="experience-text" data-aos="fade-right">Mengapa Memilih Makanan Sehat?</div>
+
+<div class="description-text" data-aos="fade-left">
+  Makanan sehat adalah landasan gaya hidup yang dinamis. Mereka dikemas dengan nutrisi penting, vitamin, dan mineral yang dibutuhkan tubuh kita untuk berfungsi secara optimal. Dengan memilih makanan sehat daripada pilihan olahan, Anda berinvestasi dalam kesehatan dan kesejahteraan jangka panjang Anda.
+</div>
+<!-- Tambahkan tulisan Experience Serene Luxury and comfort at HealthyU -->
+<div class="experience-text" data-aos="fade-right"> Tips Terbaik untuk Memilih Makanan Sehat</div>
+
+<div class="description-text" data-aos="fade-left">
+  Memilih makanan sehat adalah langkah penting dalam menjaga kesehatan dan kesejahteraan kita. Salah satu prinsip utama adalah memilih makanan segar yang minim diproses, seperti buah, sayuran, dan biji-bijian utuh. Penting juga untuk memperhatikan keseimbangan gizi, dengan memilih makanan yang mengandung karbohidrat kompleks, protein, lemak sehat, serat, serta vitamin dan mineral yang cukup. Perhatikan juga label makanan untuk memeriksa kandungan nutrisi dan bahan tambahan yang digunakan. Hindari makanan tinggi gula tambahan dan garam berlebih, serta batasi konsumsi lemak jenuh dan trans. Pilih sumber protein yang sehat, seperti daging tanpa lemak, ikan, kacang-kacangan, dan produk susu rendah lemak. Penting juga untuk memperhatikan ukuran porsi dan menghindari makan berlebihan. Minum banyak air untuk menjaga hidrasi tubuh. Variasi dalam konsumsi makanan juga penting, sehingga tubuh mendapatkan nutrisi yang beragam. Hindari makanan cepat saji dan makan dengan kesadaran penuh, tanpa sambil melakukan aktivitas lain. Rencanakan menu makanan sehat Anda untuk membantu Anda tetap berkomitmen pada gaya hidup yang sehat secara keseluruhan. Dengan mengikuti tips-tips ini, kita dapat membuat pilihan makanan yang lebih sehat untuk mendukung kesehatan dan kesejahteraan kita.
+</div>    
+
+    <div class="experience-text" data-aos="fade-right">  Menerapkan Gaya Hidup Sehat
+    </div>
+    
+    <div class="description-text" data-aos="fade-left">
+      Transisi ke pola makan yang lebih sehat tidak harus menjadi tugas yang sulit. Mulailah dari hal kecil dengan membuat satu atau dua perubahan sekaligus, dan secara bertahap, ini akan menjadi bagian dari rutinitas harian Anda. Ingat, makan sehat adalah soal keseimbangan dan menikmati beragam makanan yang menyehatkan tubuh dan jiwa.
+      Kami harap panduan ini menginspirasi Anda untuk membuat pilihan yang bijaksana dan menjelajahi dunia makanan sehat yang menakjubkan. Tubuh Anda berhak mendapatkan bahan bakar terbaik. Saatnya untuk mulai memberinya nutrisi dengan benar.
+        </div>
+
+    <div class="about-section" data-aos="fade-down">
+        <div class="ber-container">
+          <div class="experience2-text"> Sehat itu Mahal</div>
+          <div class="ber-container">
+            <div class="description-text"> Yuk, mulai hari ini kita berkomitmen untuk memberi tubuh kita makanan yang sehat dan bernutrisi!
+            </div>
+          </div>
+        </div>
+    </div>
+
+<footer class="footer-section">
+    <div class="footer-box container">
+    <div class="footer-social">
+        <a href="#" target="_blank" class="footer-social-link"><ion-icon class="footer-social-logo" name="logo-facebook"></ion-icon></a>
+        <a href="#" target="_blank" class="footer-social-link"><ion-icon class="footer-social-logo" name="logo-instagram"></ion-icon></a>
+        <a href="#" target="_blank" class="footer-social-link"><ion-icon class="footer-social-logo" name="logo-twitter"></ion-icon></a>
+    </div>
+    <p>© 2024 HealtyU Tourism</p>
+    </div>
+</footer>
+
+<!-- Include AOS JS -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+<script src="scripts.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="icon" href="Vricap-favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HealtyU</title>
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/queries.css" rel="stylesheet" />
+    <script type="module" src="scripts.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore-compat.js"></script>
+
+  </head>
+  <body>
+    <header class="main--header">
+      <a href="#"><img class="main--newlogo" src="img/newlogo.png" /></a>
+
+      <nav class="main--nav">
+        <ul class="main-nav-list">
+          <li><a class="main-nav-link" href="about.html">About</a></li>
+          <li><a class="main-nav-link" href="food.html">Food</a></li>
+          <li><a class="main-nav-link" href="calorie.html">Calorie</a></li>
+          <li id="user-info" style="display: none;">
+     		 <img id="user-pic" src="" alt="User picture" style="width: 30px; height: 30px; border-radius: 50%;">
+    	   	<span id="user-name"></span> (<span id="user-email"></span>)
+    	  </li>
+          <li><button id="google-login-btn" style="cursor: pointer;">Log In</button></li>
+          <li><button id="logout-btn" style="display: none; cursor: pointer;">Log Out</button></li>
+        </ul>
+      </nav>
+
+      <button class="btn-mobile-nav">
+        <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+        <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="hero-box container">
+          <div class="hero-text">
+            <h1 class="hero-header">
+              HealtyU Tourism
+            </h1>
+            <p>Plans for your wellness being.</p>
+            <div class="hero-short-link">
+              <a href="#hobby">Joins US!</a>
+            </div>
+          </div>
+          <div class="hero-img">
+            <img class="hero-vricap-img" src="data:image/png;base64,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">
+          </div>
+        </div>
+      </section>      
+
+      <section id="hobby" class="hobby-section">
+        <div class="hobby-intro">
+          <h2>Plans Your Journey!</h2>
+          <p>Choose your journey!.</p>
+        </div>
+        <div class="hobby-box container">
+          <div class="hobby-card plans-1">
+            <img class="hobby-icon" src="/img/meditation-booking.png" alt="">
+            <h3>Meditation</h3>
+            <div class="price-book">
+              <button class="book-btn">GO</button>
+          </div>
+          </div>
+
+          <div class="hobby-card plans-2">
+            <img class="hobby-icon" src="/img/zumba-booking.png" alt="">
+            <h3>Zumba</h3>
+            <div class="price-book">
+              <button class="book-btn">GO</button>
+          </div>
+          </div>
+
+          <div class="hobby-card plans-3">
+            <img class="hobby-icon" src="/img/cardio-booking.png" alt="">
+            <h3>Cardio</h3>
+            <p>
+            </p>
+            <div class="price-book">
+              <a href="cardio.html"><button class="book-btn">GO</button></a>
+            </div>
+          </div>
+          
+      </section>
+
+      <h1 class="plans-explanation">What You Need To Know!</h1>
+      <section id="about" class="about-section">
+        <div class="about-box container">
+          <div class="about-img">
+            <img class="about-vricap-img" src="img/meditation-plans.jpg" />
+          </div>
+          <div class="about-text">
+            <h2>Meditation</h2>
+            <h2 style="font-size: 2rem;"><em>(Relaksasi)</em></h2>
+            <p>Layanan meditasi kami. Kami menawarkan meditasi untuk menenangkan pikiran, tubuh, dan energi Anda. Bergabunglah bersama kami dalam aktivitas 3 bulan yang tidak akan Anda dapatkan di tempat lain!</p>
+            <span style="font-size: 1.6rem;"><a href=""><em>Download brosur!</em></a></span>
+          </div>
+        </div>
+
+        <div class="about-box container">
+          <div class="about-img">
+            <img class="about-vricap-img" src="img/zumba-plans.jpg" />
+          </div>
+          <div class="about-text">
+            <h2>Zumba</h2>
+            <h2 style="font-size: 2rem;"><em>(Rekreasional)</em></h2>
+            <p>Kami juga menawarkan aktivitas Zumba. Anda tidak suka sesuatu yang terlalu relax? Namun Anda juga tidak suka sesuatu yang terlalu intense? Maka, bergabunglah dengan Zumba kami!</p>
+            <span style="font-size: 1.6rem;"><a href=""><em>Download brosur!</em></a></span>
+          </div>
+        </div>
+
+        <div class="about-box container">
+          <div class="about-img">
+            <img class="about-vricap-img" src="img/cardio-plans.jpg" />
+          </div>
+          <div class="about-text">
+            <h2>Cardio</h2>
+            <h2 style="font-size: 2rem;"><em>(Intensif)</em></h2>
+            <p>Kegiatan paling intensif yang kami tawarkan! Ingin menambah daya tahan jantung Anda? Atau bahkan ingin menurunkan berat badan Anda? Ini adalah pilihan yang tepat. Berdasarkan observasi yang telah kami lakukan, peserta rata-rata kehilangan 10kg dalam kegiatan 3 bulan Cardio kami. WOW!</p>
+            <span style="font-size: 1.6rem;"><a href=""><em>Download brosur!</em></a></span>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="contact-section">
+        <div class="contact-intro">
+          <h2>Keep in touch!</h2>
+        </div>
+        <div class="contact-box container">
+          <form class="contact-form">
+            <div>
+              <label for="Your-name">Your Name: </label>
+              <input id="Your-name" type="text" placeholder="Suharto" required />
+            </div>
+
+            <div>
+              <label for="Your-email">Your Email: </label>
+              <input
+                id="Your-email"
+                type="email"
+                placeholder="healtyu@gmail.com"
+                required
+              />
+            </div>
+
+            <div>
+              <textarea
+                id="message"
+                placeholder="Send message here!"
+                required
+              ></textarea>
+            </div>
+            <button class="contact-btn">send</button>
+          </form>
+
+          <div class="contact-info">
+            <ion-icon class="contact-icon" name="call"></ion-icon>
+            <div class="contact-info-text">
+              <h3>Phone</h3>
+              <p>+62 856 098 217 234</p>
+            </div>
+
+            <ion-icon class="contact-icon" name="navigate-circle"></ion-icon>
+            <div class="contact-info-text">
+              <h3>Address</h3>
+              <p>Sleman, Yogyakarta<br />Jawa Tengah, Indonesia</p>
+            </div>
+
+            <ion-icon class="contact-icon" name="mail"></ion-icon>
+            <div class="contact-info-text">
+              <h3>Email</h3>
+              <p>healtyu@gmail.com</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer-section">
+      <div class="footer-box container">
+        <div class="footer-social">
+          <a
+            href="#"
+            target="_blank"
+            class="footer-social-link"
+            ><ion-icon
+              class="footer-social-logo"
+              name="logo-facebook"
+            ></ion-icon
+          ></a>
+
+          <a
+            href="#"
+            target="_blank"
+            class="footer-social-link"
+            ><ion-icon
+              class="footer-social-logo"
+              name="logo-instagram"
+            ></ion-icon
+          ></a>
+
+          <a
+            href="#"
+            target="_blank"
+            class="footer-social-link"
+            ><ion-icon class="footer-social-logo" name="logo-twitter"></ion-icon
+          ></a>
+        </div>
+        <p>© 2024</p>
+      </div>
+    </footer>
+
+    <!-- Popup Overlay -->
+    <div class="popup-overlay" id="popupOverlay">
+      <div class="popup">
+        <span class="close-btn" id="closeBtn">&times;</span>
+        <h2>Payment Form</h2>
+        <form class="form-payment" action="">
+          <input type="text" id="name" placeholder="Nama Pemegang Kartu">
+          <input type="email" id="email" placeholder="Email" readonly>
+          <input type="text" id="cardNumber" placeholder="Credit/Debit Card Number">
+          <input type="text" id="price" placeholder="500rb" value="500rb" readonly>
+        </form>
+        <button class="pay-btn"">Pay</button>
+      <span><em>* Token / tiket akan dikirim ke email Anda</em></span>
+      </div>
+    </div>
+
+    <div class="history-container">
+      <h1>History</h1>  
+        <button class="history-btn-close">Close</button>
+    </div>
+
+      <div class="history-btn-open">
+        <ion-icon class="history-icon" name="reload-circle-outline"></ion-icon>
+      </div>
+
+    <script>
+      document.body.style.zoom = "0.9"; // Zoom out to 80%
+     // Function to close the popup
+       document.getElementById('closeBtn').onclick = function() {
+         document.getElementById('popupOverlay').style.display = 'none';
+       };
+    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

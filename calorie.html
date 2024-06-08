@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calorie Calculator</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    padding: 20px;
+    margin: 0;
+  }
+  h2 {
+    color: #333;
+  }
+  form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 500px;
+    margin: auto;
+  }
+  input[type="number"],
+  select,
+  input[type="radio"] {
+    padding: 10px;
+    margin: 10px 0;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  button {
+    display: block;
+    background-color: #212529;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #00796b;
+  }
+  #result {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 18px;
+    background-color: #212529;
+    color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 500px;
+    margin: 20px auto 0;
+  }
+</style>
+<script>
+  function calculateCalories() {
+    // User input
+    var age = document.getElementById('age').value;
+    var height = document.getElementById('height').value; // in cm
+    var weight = document.getElementById('weight').value; // in kg
+    var gender = document.querySelector('input[name="gender"]:checked').value;
+
+    // BMR Calculation
+    var bmr;
+    if (gender === 'male') {
+      bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+    } else { // female
+      bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+    }
+
+    // Display result
+    document.getElementById('result').innerHTML = "You need " + bmr.toFixed(2) + " calories/day.";
+  }
+</script>
+</head>
+<body>
+    <!-- <a href="index.html"><- Back Home</a> -->
+<h2>Calorie Needs Calculator</h2>
+<form id="calorieForm">
+  <input type="number" id="age" placeholder="Age" required>
+  <input type="number" id="height" placeholder="Height in cm" required>
+  <input type="number" id="weight" placeholder="Weight in kg" required>
+  Gender:
+  <label><input type="radio" name="gender" value="male" required> Male</label>
+  <label><input type="radio" name="gender" value="female"> Female</label>
+  <button type="button" onclick="calculateCalories()">Calculate</button>
+</form>
+<div id="result"></div>
+</body>
+</html>

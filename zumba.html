@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meditation Space</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/queries.css">
+  <link href="https://fonts.googleapis.com/css2?family=Alegreya+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    .meditasi-heading {
+      font-family: 'Alegreya SC', serif;
+      color: #C4A15D;
+      text-align: center;
+      font-size: 3rem;
+      margin-top: 4rem; /* Menurunkan tulisan lebih jauh */
+    }
+
+    .header-bottom {
+      background-color: #ffffff; /* Warna putih bersih */
+      padding: 40px 0; /* Menambahkan padding agar lebih jauh dari atas */
+      margin-top: 80px; /* Menambahkan margin atas */
+    }
+
+    .meditasi-image {
+      display: block;
+      margin: 0 auto;
+      width: 1650px; /* Sesuaikan dengan ukuran gambar */
+      height: 324px; /* Sesuaikan dengan ukuran gambar */
+    }
+
+    .experience-text {
+      font-family: 'Alegreya SC', serif;
+      color: #C4A15D;
+      text-align: center;
+      font-size: 35px;
+      margin-top: 40px; /* Menambahkan jarak yang sedikit lebih besar dari gambar */
+    }
+
+    .description-text {
+      font-family: 'alike angular', sans-serif; /* Mengatur font menjadi alike angular */
+      color: #747474; /* Mengatur warna teks menjadi #747474 */
+      font-size: 16px; /* Mengatur ukuran teks menjadi 16 */
+      text-align: center; /* Pusatkan teks */
+      margin-top: 20px; /* Menambahkan jarak dari teks sebelumnya */
+      line-height: 1.5; /* Menambahkan jarak antar baris */
+      padding: 20px 0;
+      margin-left: 160px;
+      margin-right: 160px;
+    }
+
+    .medito-container {
+      display: flex;
+      align-items: flex-start; /* Membuat item flex mulai dari atas */
+      justify-content: space-between;
+      margin: 20px 160px;
+    }
+
+    .medito-text {
+      font-family: 'Alegreya SC', serif;
+      color: #755C2B; /* Warna baru untuk "Meditasi & Relaksasi" */
+      font-size: 35px;
+      margin-top: 130px; /* Mengurangi jarak dengan gambar */
+    }
+
+    .medito-text span {
+      color: #C4A15D; /* Warna tetap seperti sebelumnya */
+    }
+
+    .additional-text {
+      font-family: 'alike angular', sans-serif;
+      color: #747474;
+      font-size: 16px;
+      margin-top: -240px; /* Mengurangi jarak dengan teks sebelumnya */
+      margin-left: 160px; /* Menambahkan margin kiri */
+      margin-right: 960px;
+    }
+
+    .meditasi1-image {
+      width: 600px; 
+      height: 400px; 
+      margin-top: 40px;
+    }
+
+    .mentor-section {
+      width: 100vw;
+      background-color: #F7F7F7; /* Latar belakang untuk bagian mentor */
+      display: flex;
+      justify-content: center; /* Pusatkan konten secara horizontal */
+      padding: 40px 0;
+      box-sizing: border-box;
+      margin-left: calc(-50vw + 50%);
+      left: 0;
+      right: 0;
+      position: relative;
+      margin-top: 160px; /* Menambahkan jarak dari elemen di atasnya */
+    }
+
+    .mentor-container {
+      display: flex;
+      align-items: center; /* Pusatkan secara vertikal */
+      justify-content: flex-start; /* Menggeser elemen ke kiri */
+      width: 100%;
+      max-width: 1200px;
+      padding: 0 160px; /* Memberi jarak padding */
+    }
+
+    .mentor-text {
+  font-family: 'Alegreya SC', serif;
+  color: #755C2B; /* Warna baru untuk "Mentor Berpengalaman" */
+  font-size: 35px;
+  margin-left: 160px; /* Menggeser ke kanan */
+  margin-right: 20px; /* Mengurangi margin kanan */
+  margin-top: -160px; /* Menghilangkan margin atas */
+}
+
+    .mentor-text span {
+      color: #C4A15D; /* Warna tetap seperti sebelumnya */
+    }
+
+    .additiona2-text {
+      font-family: 'alike angular', sans-serif;
+      color: #747474;
+      font-size: 16px;
+      margin-top:60px; /* Mengurangi jarak dengan teks sebelumnya */
+      margin-left: -265px; /* Menambahkan margin kiri */
+      margin-right: -100px;
+    }
+    .mentor-image {
+      width: 600px; 
+      height: 400px; 
+      border-right: 28px solid #C4A15D; /* Warna border bisa disesuaikan */
+      border-bottom: 28px solid #C4A15D; /* Warna border bisa disesuaikan */
+      margin-left: -220px;
+    }
+
+
+
+    .fasilitas-text {
+      font-family: 'Alegreya SC', serif;
+      color: #755C2B; /* Warna baru untuk "Meditasi & Relaksasi" */
+      font-size: 35px;
+      margin-top: 100px; /* Mengurangi jarak dengan gambar */
+    }
+
+    .fasilitas-text span {
+      color: #C4A15D; /* Warna tetap seperti sebelumnya */
+    }
+
+    .fasilitas-image {
+      width: 600px; 
+      height: 400px; 
+      margin-top:15px;
+      border-left: 28px solid #C4A15D; /* Warna border bisa disesuaikan */
+      border-bottom: 28px solid #C4A15D; /* Warna border bisa disesuaikan */
+    }
+
+    .ber-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Memusatkan secara vertikal */
+      justify-content: center; /* Memusatkan secara horizontal */
+      margin: 40px 160px;
+    }
+
+    .experience2-text {
+      font-family: 'Alegreya SC', serif;
+      color: #755C2B; /* Warna baru untuk teks */
+      font-size: 35px; /* Sesuaikan ukuran teks */
+      text-align: center; /* Pusatkan teks */
+      margin-top: 20px; /* Sesuaikan sesuai kebutuhan */
+    }
+
+    .experience2-text span {
+      color: #C4A15D; /* Warna tetap seperti sebelumnya */
+    }
+
+    .custom-text {
+      font-family: 'Alegreya SC', serif;
+      color: #747474;
+      font-size: 17px;
+      text-align: center; /* Pusatkan teks */
+      margin-top: -20px; /* Sesuaikan sesuai kebutuhan */
+      margin-left: 80px;
+      margin-right: 80px;
+    }
+
+    .lay-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Memusatkan secara vertikal */
+      justify-content: center; /* Memusatkan secara horizontal */
+      margin: 40px 160px;
+    }
+
+    .experience3-text {
+      font-family: 'Alegreya SC', serif;
+      color: #755C2B; /* Warna baru untuk teks */
+      font-size: 35px; /* Sesuaikan ukuran teks */
+      text-align: center; /* Pusatkan teks */
+      margin-top: -20px; /* Sesuaikan sesuai kebutuhan */
+    }
+
+    .experience3-text span {
+      color: #C4A15D; /* Warna tetap seperti sebelumnya */
+    }
+
+    .book-now-btn {
+      font-family: 'Alegreya SC', serif;
+      color: #755C2B;
+      background-color: transparent;
+      border: 2px solid #755C2B;
+      padding: 10px 20px;
+      font-size: 20px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      margin-top: 20px;
+    }
+
+    .book-now-btn:hover {
+      background-color: #755C2B;
+      color: #ffffff;
+    }
+
+    .ber-section {
+      width: 100vw;
+      height: 20vw;
+      background-color: #F7F7F7; /* Latar belakang untuk bagian mentor */
+      display: flex;
+      justify-content: center; /* Pusatkan konten secara horizontal */
+      padding: -200px 0;
+      box-sizing: border-box;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
+      margin-top: 160px; /* Menambahkan jarak dari elemen di atasnya */
+    }
+
+    .lay-section {
+      width: 100vw;
+      height: 20vw;
+      background-color: #FFF8EA; /* Latar belakang untuk bagian mentor */
+      display: flex;
+      justify-content: center; /* Pusatkan konten secara horizontal */
+      padding: -200px 0;
+      box-sizing: border-box;
+      margin-left: calc(-50vw + 50%);
+      position: relative;
+      margin-top: -20px; /* Menambahkan jarak dari elemen di atasnya */
+    }
+  </style>
+</head>
+<body>
+  <header class="main--header">
+    <a href="#"><img class="main--newlogo" src="img/newlogo.png" /></a>
+    <nav class="main--nav">
+      <ul class="main-nav-list">
+        <li><a class="main-nav-link" href="about.html">About</a></li>
+        <li><a class="main-nav-link" href="food.html">Food</a></li>
+        <li><a class="main-nav-link" href="calorie.html">Calorie</a></li>
+        <li id="user-info" style="display: none;">
+          <img id="user-pic" src="" alt="User picture" style="width: 30px; height: 30px; border-radius: 50%;">
+          <span id="user-name"></span> (<span id="user-email"></span>)
+        </li>
+        <li><button id="logout-btn" style="display: none; cursor: pointer;">Log Out</button></li>
+      </ul>
+    </nav>
+    <button class="btn-mobile-nav">
+      <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+      <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+    </button>
+  </header>
+
+  <!-- Tambahkan div untuk header bawah -->
+  <div class="header-bottom">
+    <div class="meditasi-heading">Z U M B A</div>
+  </div>
+
+  <!-- Tambahkan gambar meditasi -->
+  <img class="meditasi-image" src="img/zumba.png" alt="Meditasi" width="1280" height="324">
+
+  <!-- Tambahkan tulisan Experience Serene Luxury and comfort at HealthyU -->
+  <div class="experience-text">Experience Serene Luxury and comfort at HealthyU</div>
+
+  <div class="description-text">
+    HealtyU mengadakan event Zumba eksklusif yang menawarkan pengalaman menyenangkan dan energik dalam latihan fisik yang seru. Setiap sesi Zumba diselenggarakan di lingkungan yang dinamis dan penuh semangat, dilengkapi dengan peralatan yang lengkap untuk memastikan kenyamanan dan keamanan Anda. Event ini menghadirkan instruktur Zumba berpengalaman yang akan memandu Anda melalui gerakan-gerakan yang mengasyikkan untuk meningkatkan energi, meningkatkan ketahanan tubuh, dan merasakan kegembiraan dalam bergerak.  </div>
+
+  <div class="medito-container">
+    <div class="medito-text"><span>Zumba Ria</span><br> Gembira & Energik</div>
+    <img id="changingImg" src="img/zumba1.png" alt="Changing Image" style="width: 600px; height: 400px; margin-top: 40px; border-left: 28px solid #C4A15D; border-bottom: 28px solid #C4A15D;">
+  </div>
+  
+  <div class="additional-text">
+    Nikmati semangat dan energi dalam setiap gerakan dengan kelas Zumba kami di HealtyU. Dengan alunan musik yang menggembirakan dan gerakan-gerakan yang mengasyikkan, kelas Zumba kami akan membantu Anda membakar kalori, meningkatkan kesehatan jantung, dan meningkatkan mood Anda.
+</div>
+
+<div class="mentor-section">
+  <div class="mentor-container">
+    <img class="mentor-image" src="img/mentorzumba.png" alt="Foto Mentor">
+    <div class="mentor-text"><span>Mentor</span><br> Berpengalaman</div>
+
+    <div class="additiona2-text">
+        Setiap sesi Zumbaria dipandu oleh mentor yang berpengalaman, siap membantu Anda merasakan kegembiraan dalam gerakan dan memperdalam koneksi Anda dengan musik dan tubuh Anda. Dengan penuh semangat dan pengetahuan yang luas tentang tarian Zumba, mentor kami akan memastikan setiap langkah Anda mengalir dengan gemilang, membawa Anda pada perjalanan yang penuh kesenangan dan pencapaian.    </div>
+  </div>
+</div>
+
+
+  <div class="medito-container">
+    <div class="fasilitas-text"><span>Fasilitas</span><br> Nyaman & Memadai</div>
+    <img class="fasilitas-image" src="img/fasilitaszumba.png" alt="Foto Fasilitas">
+  </div>
+
+  <div class="additional-text">
+    Kegembiraan dan energi bersemangat menanti Anda di studio Zumba kami. Dilengkapi dengan dekorasi yang dinamis dan warna-warni, serta ruang yang luas untuk bergerak bebas, kami menciptakan lingkungan yang menyenangkan dan bersemangat untuk menjalani sesi Zumba Anda. Dengan musik yang menghentak dan instruktur yang penuh semangat, setiap gerakan Anda akan terasa memikat dan mengasyikkan. 
+</div>
+
+  <div class="ber-section">
+  <div class="ber-container">
+    <div class="experience2-text"><span>Bergabunglah Bersama Kami</span><br> ”Bersiaplah untuk ketenangan & kedamaian diri”</div>
+    <div class="ber-container">
+      <div class="custom-text">Siapkan agenda Anda! Bersiaplah untuk pengalaman yang luar biasa pada bulan Januari-Maret setiap Jumat pukul 16.00 di Hotel Aston. Mari bergabung bersama kami untuk merasakan momen kehadiran dan kedamaian yang penuh inspirasi!</div>
+    </div>
+  </div>
+  </div>
+
+  <div class="lay-section" id="payment-form">
+    <div class="lay-container">
+      <div class="experience3-text"><span>Dapatkan Layanan Dengan Harga</span><br> IDR 700,000</div>
+      <a class="book-now-btn" href="#payment-form">Book Now</a>
+    </div>
+  </div>
+  </div>
+</div>
+</div>
+  <footer class="footer-section">
+    <div class="footer-box container">
+      <div class="footer-social">
+        <a href="#" target="_blank" class="footer-social-link"><ion-icon class="footer-social-logo" name="logo-facebook"></ion-icon></a>
+        <a href="#" target="_blank" class="footer-social-link"><ion-icon class="footer-social-logo" name="logo-instagram"></ion-icon></a>
+        <a href="#" target="_blank" class="footer-social-link"><ion-icon class="footer-social-logo" name="logo-twitter"></ion-icon></a>
+      </div>
+      <p>© 2024 HealtyU Tourism</p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
