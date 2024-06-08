@@ -97,40 +97,32 @@ onAuthStateChanged(auth, (user) => {
 });
 
 onAuthStateChanged(auth, user => {
-  // Ensure meditation and zumba buttons are not disabled
-  contactBtn[0].disabled = false;
-  contactBtn[0].style.cursor = "pointer";
-  contactBtn[1].disabled = false;
-  contactBtn[1].style.cursor = "pointer";
-
-  if(month >= 8) {
-    contactBtn[3].disabled = true;
-    contactBtn[3].style.cursor = "not-allowed";
-  }
-
-  if(user) {
-    contactBtn.forEach((b, i) => {
-      b.removeEventListener("click", showPayAlert); // Remove previous event listener
-      b.removeEventListener("click", showMustLogAlert); // Remove previous event listener
-
-      if(!b.disabled) {
-        b.addEventListener("click", () => {
-          if (i === 0) { // Assuming 0 is for meditation booking
-            window.location.href = "meditasi.html";
-          } else if (i === 1) { // Zumba
-            showPayAlert(user, i);
-          }
-        });
-      }
-    });
-  } else {
-    contactBtn.forEach(b => {
-      b.removeEventListener("click", showPayAlert); // Remove previous event listener
-      b.removeEventListener("click", showMustLogAlert); // Remove previous event listener
-
-      if(!b.disabled) b.addEventListener("click", showMustLogAlert);
-    });
-  }
+    if(month <= 4) {
+      contactBtn[0].disable = true
+      contactBtn[0].style.cursor = "not-allowed"
+    } else if(month >= 5 && month <= 8) {
+      contactBtn[0].disable = true
+      contactBtn[0].style.cursor = "not-allowed"
+  
+      contactBtn[1].disable = true
+      contactBtn[1].style.cursor = "not-allowed"
+    } else if(month >= 8) {
+      contactBtn[3].disable = true
+      contactBtn[3].style.cursor = "not-allowed"
+    }
+  
+    if(user) {
+      contactBtn.forEach((b, i) => {
+        // b.removeEventListener("click", showMustLogAlert)
+        if(!b.disable) b.addEventListener("click", () => showPayAlert(user, i))
+      });    
+      
+    } else {
+      contactBtn.forEach(b => {
+        // b.removeEventListener("click", showPayAlert)
+        if(!b.disable) b.addEventListener("click", showMustLogAlert)
+      });
+    }   
 });
 
 onAuthStateChanged(auth, user => {
@@ -174,13 +166,25 @@ function showPayAlert(user, i) {
   formPayment.elements['email'].value = user.email;
 
   let bookName;
+  let harga;
   if(i == 0) {
-    bookName = "meditation";
+    bookName = "meditation"
+    harga = 550
   } else if(i == 1) {
-    bookName = "zumba";
+    bookName = "zumba"
+    harga = 700
+  } else if(i == 2) {
+    bookName = "cardio"
+    harga = 550
   }
 
+  formPayment.elements['price'].value = `${harga}rb`
+
   document.querySelector(".pay-btn").addEventListener("click", () => {
+    if(!formPayment.elements['name'].value || !formPayment.elements['cardNumber'].value) {
+      alert("ISI SEMUA FORM!")
+      return
+    }
     const token = uuid
     .v4();
     setDoc(doc(db, "users", user.email), {
@@ -188,7 +192,7 @@ function showPayAlert(user, i) {
       book: bookName,
       date: getCurrentDateInWords(),
       bookId: i,
-      harga: 500,
+      harga,
       token,
     }).then(() => {
       alert("Pembayaran berhasil! Cek email mu.");
@@ -199,10 +203,10 @@ function showPayAlert(user, i) {
         window.location.reload();
       }
     });
-  });
 
-  formPayment.elements['name'].value = "";
-  formPayment.elements['cardNumber'].value = "";
+    formPayment.elements['name'].value = "";
+    formPayment.elements['cardNumber'].value = "";
+  });
 }
 
 function getCurrentDateInWords() {
@@ -216,14 +220,15 @@ function getCurrentDateInWords() {
   ];
 
   // Extract day, month, and year
+  const dateNum = date.getDate()
   const dayName = days[date.getDay()];
   const monthName = months[date.getMonth()];
   const year = date.getFullYear();
 
   // Format the date
-  return `${dayName}/${monthName}/${year}`;
+  return `${dateNum} ${dayName}/${monthName}/${year}`;
 }
 
 btnHisClose.addEventListener("click", () => {
   document.querySelector(".history-container").style.display = "none";
-});
+})

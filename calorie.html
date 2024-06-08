@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
 <title>Calorie Calculator</title>
 <style>
   body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    padding: 20px;
-    margin: 0;
+    /* padding: 20px; */
+    /* margin: 0; */
   }
   h2 {
     color: #333;
@@ -21,6 +22,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     max-width: 500px;
     margin: auto;
+    margin-top: 20rem;
   }
   input[type="number"],
   select,
@@ -77,6 +79,25 @@
 </script>
 </head>
 <body>
+  <header class="main--header">
+    <a href="index.html"><img class="main--newlogo" src="img/newlogo.png" /></a>
+    <nav class="main--nav">
+      <ul class="main-nav-list">
+        <li><a class="main-nav-link" href="about.html">About</a></li>
+        <li><a class="main-nav-link" href="food.html">Food</a></li>
+        <li><a class="main-nav-link" href="calorie.html">Calorie</a></li>
+        <li id="user-info" style="display: none;">
+          <img id="user-pic" src="" alt="User picture" style="width: 30px; height: 30px; border-radius: 50%;">
+          <span id="user-name"></span> (<span id="user-email"></span>)
+        </li>
+        <li><button id="logout-btn" style="display: none; cursor: pointer;">Log Out</button></li>
+      </ul>
+    </nav>
+    <button class="btn-mobile-nav">
+      <ion-icon class="icon-mobile-nav" name="menu-outline"></ion-icon>
+      <ion-icon class="icon-mobile-nav" name="close-outline"></ion-icon>
+    </button>
+  </header>
     <!-- <a href="index.html"><- Back Home</a> -->
 <h2>Calorie Needs Calculator</h2>
 <form id="calorieForm">

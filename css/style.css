@@ -362,7 +362,32 @@ body {
   font-size: 2.4rem;
   line-height: 3.9rem;
   color: #868e96;
-  margin-bottom: 5rem;
+  margin-bottom: 3rem;
+}
+
+.info-btn {
+  display: block;
+  text-align: right;
+  margin-bottom: 10rem;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  letter-spacing: 0.4rem;
+  font-weight: 500;
+  color: #e9ecef;
+  background-color: #212529;
+  border: solid 1px #212529;
+  width: 25rem;
+  text-align: center;
+  padding: 1rem;
+  transition: all 0.3s;
+}
+
+.info-btn:hover {
+  background-color: rgba(95, 80, 80, 0);
+  border: solid 1px #212529;
+  color: #212529;
+  cursor: pointer;
+
 }
 
 /********************************/
@@ -469,6 +494,22 @@ body {
   text-wrap: wrap;
 }
 
+.info-list {
+  height: 23rem;
+  margin-bottom: 3rem;
+}
+
+.info-list ul li {
+  color: #fcc2d7;
+  font-size: 1.8rem;
+  margin: 3rem;
+  text-align: left;
+}
+
+.info-list ul li:last-child {
+  margin-bottom: 0rem;
+}
+
 .hobby-card-info {
   grid-row-end: span 2;
   background-color: #495057;
@@ -481,7 +522,8 @@ body {
 }
 
 .price-book {
-  margin-top: 16rem;
+  /* margin-bottom: auto;
+  margin-top: 1rem; */
 }
 
 .price-book p {
