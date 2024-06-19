@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* background-color: aquamarine; */
+            font-family: "Rubik", sans-serif;
+            line-height: 1;
+            font-weight: 400;
+            color: #343a40;
+            /* position: relative; */
+            background-image: url(img/cardio-plans.jpg);
+            height: 200vh;
+        }
+
+        .payment-form-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #0c0c0c2c;
+        }
+
+        .payment-popup {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            width: auto;
+            padding: 2rem;
+            border-radius: 1rem;
+            background-color: #f8f9fa;
+            box-shadow: 1px 1px 5px 4px rgba(0, 0, 0, 0.09);
+            position: relative;
+        }
+
+        .payment-info-div {
+        }
+
+        .payment-info-div h2{
+            margin-bottom: 0.7rem;
+        }
+
+        .payment-method {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .payment-form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .payment-form div {
+            width: 198px;
+        }
+
+        .payment-form div input{
+            padding: 0.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .form-pay {
+            text-transform: uppercase;
+            font-size: 1rem;
+            letter-spacing: 0.4rem;
+            font-weight: 500;
+            color: #e9ecef;
+            background-color: #212529;
+            border: solid 1px #212529;
+            text-align: center;
+            padding: 0.4rem;
+            transition: all 0.3s;
+        }
+
+        .form-pay:hover {
+            background-color: rgba(95, 80, 80, 0);
+            border: solid 1px #212529;
+            color: #212529;
+            cursor: pointer;
+        }
+
+        .payment-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="payment-form-wrapper">
+    <div class="payment-popup">
+        <button class="payment-close-btn">×</button>
+        <div class="payment-info-div">
+            <h2 style="font-weight: 500;">Payment Method</h2>
+                <div class="payment-method">
+                    <div class="card-method">
+                        <input type="radio" id="card" name="method" value="card" checked/>
+                        <label for="card"><ion-icon name="card"></ion-icon>&nbsp; Credit or Debit Card</label>
+                    </div>
+
+                    <div class="paypal-method">
+                        <input type="radio" id="paypal" name="method" value="paypal" disabled/>
+                        <label for="paypal"><i class="fa fa-paypal"></i>&nbsp;
+                            <span style="color: rgb(84, 17, 146);"><strong><em>Pay</em></strong></span><span style="color: rgb(115, 115, 190);"><strong><em>Pal</em></strong></span>
+                        </label>
+                    </div>
+            </div>
+        </div>
+
+        <form class="payment-form">
+            <div>
+                <input type="text" id="fname" name="fname"><br>
+                <label for="fname">First name</label><br>
+            </div>
+
+            <div>
+                <input type="text" id="lname" name="lname"><br>
+                <label for="lname">Last name</label><br>
+            </div>
+
+            <div>
+                <input type="text" id="cardnum" name="cardnum"><br>
+                <label for="cardnum">Card Number</label><br>
+            </div>
+
+            <div>
+                <input type="text" id="seccode" name="seccode" placeholder="CVC"><br>
+                <label for="seccode">Security Code</label><br>
+            </div>
+
+            <div>
+                <input type="text" id="expr" name="expr" placeholder="MM / YY"><br>
+                <label for="expr">Card Expiration</label><br>
+            </div>
+
+            <div>
+                <input type="text" id="price" name="price"><br>
+                <label for="price">Price</label><br>
+            </div>
+
+            <div>
+                <input type="text" id="email" name="email"><br>
+                <label for="email">Email</label><br>
+            </div>
+
+            <div>
+                <input type="text" id="plans" name="plans"><br>
+                <label for="plans">Plans</label><br>
+            </div>
+        </form> 
+        <button class="form-pay">PAY</button>
+    </div>
+</div>
+
+    <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
+</body>
+</html>

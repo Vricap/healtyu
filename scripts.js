@@ -131,8 +131,9 @@ onAuthStateChanged(auth, user => {
       const div = document.createElement("div");
       div.className = "history-item";
       div.innerHTML = `
-      <h2 style="text-transform: uppercase;">${docData.book}</h2>
-      <p>Atas Nama: ${docData.name}</p>
+      <h2 style="text-transform: uppercase;">${docData.plans}</h2>
+      <p>Atas Nama: ${docData.firstName} ${docData.lastName}</p>
+      <p>Nomor Kartu: ${docData.cardNum}</p>
       <p>Tanggal Pembelian: ${docData.date}</p>
       <p>Harga: ${docData.harga}</p>
       <p>Token: ${docData.token}</p>`;
@@ -162,8 +163,18 @@ function showMustLogAlert() {
 }
 
 function showPayAlert(user, i) {
-  document.getElementById('popupOverlay').style.display = 'block';
-  formPayment.elements['email'].value = user.email;
+  document.querySelector('.payment-popup').style.display = 'block';
+
+  const fName = document.getElementById('fname')
+  const lName = document.getElementById('lname')
+  const cardNum = document.getElementById('cardnum')
+  const secCode = document.getElementById('seccode')
+  const expr  = document.getElementById('expr')
+  const price  = document.getElementById('price')
+  const email  = document.getElementById('email')
+  const plans  = document.getElementById('plans')
+
+  email.value = user.email;
 
   let bookName;
   let harga;
@@ -178,34 +189,38 @@ function showPayAlert(user, i) {
     harga = 550
   }
 
-  formPayment.elements['price'].value = `${harga}rb`
+  price.value = `${harga}rb`
+  plans.value = bookName
 
-  document.querySelector(".pay-btn").addEventListener("click", () => {
-    if(!formPayment.elements['name'].value || !formPayment.elements['cardNumber'].value) {
+  document.querySelector(".form-pay").addEventListener("click", () => {
+    if(!fName.value || !lName.value || !cardNum.value || !secCode.value || !expr.value) {
       alert("ISI SEMUA FORM!")
       return
     }
     const token = uuid
     .v4();
     setDoc(doc(db, "users", user.email), {
-      name: formPayment.elements['name'].value,
-      book: bookName,
+      firstName: fName.value,
+      lastName: lName.value,
+      plans: bookName,
       date: getCurrentDateInWords(),
       bookId: i,
       harga,
+      cardNum: cardNum.value,
+      cardExpr: expr.value,
+      secCode: secCode.value,
       token,
     }).then(() => {
       alert("Pembayaran berhasil! Cek email mu.");
-      document.getElementById('popupOverlay').style.display = 'none';
-      if (bookName === "meditation") {
-        window.location.href = "meditasi.html";
-      } else {
-        window.location.reload();
-      }
+      document.querySelector('.payment-popup').style.display = 'none';
+      window.location.reload();
     });
 
-    formPayment.elements['name'].value = "";
-    formPayment.elements['cardNumber'].value = "";
+    fName.value = "";
+    lName.value = "";
+    cardNum.value = "";
+    secCode.value = ""
+    expr.value = ""
   });
 }
 

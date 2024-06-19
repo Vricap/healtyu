@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HealtyU</title>
     <link href="css/style.css" rel="stylesheet" />
@@ -273,7 +273,7 @@
     </footer>
 
     <!-- Popup Overlay -->
-    <div class="popup-overlay" id="popupOverlay">
+    <!-- <div class="popup-overlay" id="popupOverlay">
       <div class="popup">
         <span class="close-btn" id="closeBtn">&times;</span>
         <h2>Payment Form</h2>
@@ -286,7 +286,73 @@
         <button class="pay-btn"">Pay</button>
       <span><em>* Token / tiket akan dikirim ke email Anda</em></span>
       </div>
-    </div>
+    </div> -->
+
+    <!-- <div class="payment-form-wrapper"> -->
+      <div class="payment-popup">
+          <button class="payment-close-btn">×</button>
+          <div class="payment-info-div">
+              <h2 style="font-weight: 500;">Payment Method</h2>
+                  <div class="payment-method">
+                      <div class="card-method">
+                          <input type="radio" id="card" name="method" value="card" checked/>
+                          <label for="card"><ion-icon name="card"></ion-icon>&nbsp; Credit or Debit Card</label>
+                      </div>
+  
+                      <div class="paypal-method">
+                          <input type="radio" id="paypal" name="method" value="paypal" disabled/>
+                          <label for="paypal"><i class="fa fa-paypal"></i>&nbsp;
+                              <span style="color: rgb(84, 17, 146);"><strong><em>Pay</em></strong></span><span style="color: rgb(115, 115, 190);"><strong><em>Pal</em></strong></span>
+                          </label>
+                      </div>
+              </div>
+          </div>
+  
+          <form class="payment-form">
+              <div>
+                  <input type="text" id="fname" name="fname"><br>
+                  <label for="fname">First name</label><br>
+              </div>
+  
+              <div>
+                  <input type="text" id="lname" name="lname"><br>
+                  <label for="lname">Last name</label><br>
+              </div>
+  
+              <div>
+                  <input type="text" id="cardnum" name="cardnum"><br>
+                  <label for="cardnum">Card Number</label><br>
+              </div>
+  
+              <div>
+                  <input type="text" id="seccode" name="seccode" placeholder="CVC"><br>
+                  <label for="seccode">Security Code</label><br>
+              </div>
+  
+              <div>
+                  <input type="text" id="expr" name="expr" placeholder="MM / YY"><br>
+                  <label for="expr">Card Expiration</label><br>
+              </div>
+  
+              <div>
+                  <input type="text" id="price" name="price"><br>
+                  <label for="price">Price</label><br>
+              </div>
+  
+              <div>
+                  <input type="text" id="email" name="email"><br>
+                  <label for="email">Email</label><br>
+              </div>
+  
+              <div>
+                  <input type="text" id="plans" name="plans"><br>
+                  <label for="plans">Plans</label><br>
+              </div>
+          </form> 
+          <button class="form-pay">PAY</button>
+          <span style="font-size: 15px;"><em>* Token / tiket akan dikirim ke email Anda</em></span>
+      </div>
+  <!-- </div> -->
 
     <div class="history-container">
       <h1>History</h1>  
@@ -298,10 +364,10 @@
       </div>
 
     <script>
-      document.body.style.zoom = "0.9"; // Zoom out to 80%
+      document.body.style.zoom = "0.9";
      // Function to close the popup
-       document.getElementById('closeBtn').onclick = function() {
-         document.getElementById('popupOverlay').style.display = 'none';
+       document.querySelector('.payment-close-btn').onclick = function() {
+         document.querySelector('.payment-popup').style.display = 'none';
        };
     </script>
     <script
