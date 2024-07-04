@@ -52,7 +52,7 @@ const logoutBtn = document.getElementById('logout-btn');
 
 // Logout function
 logoutBtn.addEventListener('click', function() {
-  alert("Yakin?");
+  alert("Anda akan segera Logout!");
   signOut(auth).then(() => {
     // console.log("User has logged out");
     logoutBtn.style.display = 'none'; // Hide logout button

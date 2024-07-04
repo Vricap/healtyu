@@ -9,6 +9,7 @@
   body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
+    font-size: 2rem;
     /* height: 100vh; */
     /* display: flex; */
     /* flex-direction: column; */
@@ -28,8 +29,7 @@
     margin-top: 20rem;
   }
   input[type="number"],
-  select,
-  input[type="radio"] {
+  select {
     padding: 10px;
     margin: 10px 0;
     display: block;
@@ -69,6 +69,10 @@
     right: 0;
     left: 0;
   }
+
+  input {
+    display: inline;
+  }
 </style>
 <script>
   function calculateCalories() {
@@ -87,7 +91,7 @@
     }
 
     // Display result
-    document.getElementById('result').innerHTML = "You need " + bmr.toFixed(2) + " calories/day.";
+    document.getElementById('result').innerHTML = "You need " + bmr.toFixed(2) + " calories/day at minimum.";
   }
 </script>
 </head>
@@ -97,8 +101,8 @@
     <nav class="main--nav">
       <ul class="main-nav-list">
         <li><a class="main-nav-link" href="about.html">About</a></li>
-        <li><a class="main-nav-link" href="food.html">Food</a></li>
-        <li><a class="main-nav-link" href="calorie.html">Calorie</a></li>
+        <li><a class="main-nav-link" href="food.html">Article</a></li>
+        <li><a class="main-nav-link" href="calorie.html">Count Calorie</a></li>
         <li id="user-info" style="display: none;">
           <img id="user-pic" src="" alt="User picture" style="width: 30px; height: 30px; border-radius: 50%;">
           <span id="user-name"></span> (<span id="user-email"></span>)
@@ -118,9 +122,16 @@
   <input type="number" id="age" placeholder="Age" required>
   <input type="number" id="height" placeholder="Height in cm" required>
   <input type="number" id="weight" placeholder="Weight in kg" required>
-  Gender:
-  <label><input type="radio" name="gender" value="male" required> Male</label>
-  <label><input type="radio" name="gender" value="female"> Female</label>
+  <span style="display: block; margin-bottom: 3rem;">Gender:</span>
+  <div style="margin-bottom: 2rem;">
+    <span>Male</span>
+    <input type="radio" name="gender" value="male" required>
+  </div>
+  
+  <div style="margin-bottom: 2rem;">
+    <span>Female</span>
+    <input type="radio" name="gender" value="female">
+  </div>
   <button type="button" onclick="calculateCalories()">Calculate</button>
 </form>
 <div id="result"></div>
