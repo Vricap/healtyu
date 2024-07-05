@@ -199,7 +199,7 @@ function showPayAlert(user, i) {
     }
     const token = uuid
     .v4();
-    setDoc(doc(db, "users", user.email), {
+    setDoc(doc(db, "pembelian", user.email), {
       nama_pertama: fName.value,
       nama_terakhir: lName.value,
       layanan: bookName,
