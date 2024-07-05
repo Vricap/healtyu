@@ -149,7 +149,7 @@ onAuthStateChanged(auth, user => {
 
 // General functions
 async function getData(user) {
-  const docRef = doc(db, "users", user.email);
+  const docRef = doc(db, "pembelian", user.email);
   try {
     const docData = await getDoc(docRef);
     return docData.data();
