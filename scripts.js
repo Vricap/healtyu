@@ -1,6 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-app.js";
 import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-auth.js";
 import { getFirestore, collection, addDoc, setDoc, getDoc, doc } from "https://www.gstatic.com/firebasejs/10.11.1/firebase-firestore.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.3/firebase-analytics.js";
 
 const contactBtn = document.querySelectorAll(".book-btn");
 const formPayment = document.querySelector(".form-payment");
@@ -18,11 +19,13 @@ const firebaseConfig = {
   projectId: "wellness-tourism",
   storageBucket: "wellness-tourism.appspot.com",
   messagingSenderId: "40738864520",
-  appId: "1:40738864520:web:02faf9e8199d01283e0e3d"
+  appId: "1:40738864520:web:02faf9e8199d01283e0e3d",
+  measurementId: "G-V19RRT1GZY"
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 const auth = getAuth(app);
 auth.languageCode = 'en';
 const provider = new GoogleAuthProvider();
