@@ -131,10 +131,10 @@ onAuthStateChanged(auth, user => {
       const div = document.createElement("div");
       div.className = "history-item";
       div.innerHTML = `
-      <h2 style="text-transform: uppercase;">${docData.plans}</h2>
-      <p>Atas Nama: ${docData.firstName} ${docData.lastName}</p>
-      <p>Nomor Kartu: ${docData.cardNum}</p>
-      <p>Tanggal Pembelian: ${docData.date}</p>
+      <h2 style="text-transform: uppercase;">${docData.layanan}</h2>
+      <p>Atas Nama: ${docData.nama_pertama} ${docData.nama_terakhir}</p>
+      <p>Nomor Kartu: ${docData.nomor_kartu}</p>
+      <p>Tanggal Pembelian: ${docData.tanggal_dipesan}</p>
       <p>Harga: ${docData.harga}</p>
       <p>Token: ${docData.token}</p>`;
 
@@ -200,15 +200,15 @@ function showPayAlert(user, i) {
     const token = uuid
     .v4();
     setDoc(doc(db, "users", user.email), {
-      firstName: fName.value,
-      lastName: lName.value,
-      plans: bookName,
-      date: getCurrentDateInWords(),
-      bookId: i,
+      nama_pertama: fName.value,
+      nama_terakhir: lName.value,
+      layanan: bookName,
+      tanggal_dipesan: getCurrentDateInWords(),
+      layanan_id: i,
       harga,
-      cardNum: cardNum.value,
-      cardExpr: expr.value,
-      secCode: secCode.value,
+      nomor_kartu: cardNum.value,
+      kartu_expired: expr.value,
+      kartu_security_code: secCode.value,
       token,
     }).then(() => {
       alert("Pembayaran berhasil! Cek email mu.");
