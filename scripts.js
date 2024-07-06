@@ -25,7 +25,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
+// const analytics = getAnalytics(app); // This throw error for some reason: Uncaught Error: Component analytics has not been registered yet
 const auth = getAuth(app);
 auth.languageCode = 'en';
 const provider = new GoogleAuthProvider();
