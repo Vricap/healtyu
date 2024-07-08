@@ -4,12 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="css/style.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 <title>Calorie Calculator</title>
 <style>
   body {
     font-family: Arial, sans-serif;
     background-color: #f4f4f4;
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     /* height: 100vh; */
     /* display: flex; */
     /* flex-direction: column; */
@@ -19,6 +20,11 @@
   h2 {
     color: #333;
   }
+
+  .calculator {
+    margin-bottom: 5rem;
+  }
+
   form {
     background-color: #fff;
     padding: 10px;
@@ -26,7 +32,7 @@
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
     max-width: 500px;
     margin: auto;
-    margin-top: 10rem;
+    margin-top: 18rem;
   }
   input[type="number"],
   select {
@@ -64,10 +70,10 @@
     /* justify-self:baseline; */
     /* align-self: end; */
     margin-top: 15rem;
-    position: fixed;
+    /* position: fixed;
     bottom: 0;
     right: 0;
-    left: 0;
+    left: 0; */
   }
 
   input {
@@ -136,6 +142,153 @@
 </form>
 <div id="result"></div>
 </section>
+
+<article class="container-md">
+  <h1 class="display-4">Method</h1>
+  <p>
+    This Calorie Calculator is based on several equations, and the results of the calculator are based on an estimated average. The Harris-Benedict Equation was one of the earliest equations used to calculate basal metabolic rate (BMR), which is the amount of energy expended per day at rest. It was revised in 1984 to be more accurate and was used up until 1990, when the Mifflin-St Jeor Equation was introduced. <mark>The Mifflin-St Jeor Equation</mark> also calculates BMR, and has been shown to be more accurate than the revised Harris-Benedict Equation. Of these equations, the <mark>Mifflin-St Jeor Equation</mark> is considered the most accurate equation for calculating BMR. That equations is used by the calculator above.
+  </p> <br>
+
+  <p><strong>Revised Harris-Benedict Equation:</strong></p>
+  <dl class="row">
+    <dt class="col-sm-3">For men:</dt>
+    <dd class="col-sm-9">BMR = 13.397W + 4.799H - 5.677A + 88.362</dd>
+
+    <dt class="col-sm-3">For women:</dt>
+    <dd class="col-sm-9">BMR = 9.247W + 3.098H - 4.330A + 447.593</dd>
+    <p></p>
+    <p></p>
+
+    <dt class="col-sm-3">Where:</dt>
+    <dd class="col-sm-9">
+      <p>W is body weight in kg</p>
+      <p>H is body height in cm</p>
+      <p>A is age</p>
+    </dd>
+  </dl><br>
+
+  <h1 class="display-4">How Many Calories Do You Need?</h1>
+  <p>Many people seek to lose weight, and often the easiest way to do this is to consume fewer calories each day. But how many calories does the body actually need in order to be healthy? This largely depends on the amount of physical activity a person performs each day, and regardless of this, is different for all people – there are many different factors involved, not all of which are well-understood or known.</p>
+
+  <p>Some factors that influence the number of calories a person needs to remain healthy include age, weight, height, sex, levels of physical activity, and overall general health. For example, a physically active 25-year-old male that is 6 feet in height requires considerably higher calorie intake than a 5-foot-tall, sedentary 70-year-old woman. Though it differs depending on age and activity level, adult males generally require 2,000-3000 calories per day to maintain weight while adult females need around 1,600-2,400 according to the U.S Department of Health.</p>
+
+  <p>The body does not require many calories to simply survive. However, consuming too few calories results in the body functioning poorly, since it will only use calories for functions essential to survival, and ignore those necessary for general health and well-being. Harvard Health Publications suggests women get at least 1,200 calories and men get at least 1,500 calories a day unless supervised by doctors. As such, it is highly recommended that a person attempting to lose weight monitors their body's caloric necessities and adjusts them as necessary to maintain its nutritional needs.</p><br><br>
+
+  <h1 class="display-4">Calories in Common Foods</h1>
+  <table class="table">
+    <thead class="table-dark">
+      <tr>
+        <th scope="col">Foods</th>
+        <th scope="col">Serving Size</th>
+        <th scope="col">Calories</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="table-active">
+        <td><strong>Fruits</strong></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Apple</td>
+        <td>1 (4 oz.)</td>
+        <td>59</td>
+      </tr>
+      <tr>
+        <td>Banana</td>
+        <td>1 (6 oz.)</td>
+        <td>151</td>
+      </tr>
+      <tr>
+        <td>Grapes</td>
+        <td>1 cup</td>
+        <td>100</td>
+      </tr>
+      <tr>
+        <td>Orange</td>
+        <td>1 (4 oz.)</td>
+        <td>53</td>
+      </tr>
+      <tr>
+        <td>Pear</td>
+        <td>1 (5 oz.)</td>
+        <td>82</td>
+      </tr>
+      <tr>
+        <td>Peach</td>
+        <td>1 (6 oz.)</td>
+        <td>67</td>
+      </tr>
+      <tr class="table-active">
+        <td><strong>Vegetables</strong></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Asparagus</td>
+        <td>1 cup</td>
+        <td>27</td>
+      </tr>
+      <tr>
+        <td>Broccoli</td>
+        <td>1 cup</td>
+        <td>45</td>
+      </tr>
+      <tr>
+        <td>Tomato</td>
+        <td>1 cup</td>
+        <td>22</td>
+      </tr>
+      <tr>
+        <td>Lettuce</td>
+        <td>1 cup</td>
+        <td>5</td>
+      </tr>
+      <tr>
+        <td>Eggplant</td>
+        <td>1 cup</td>
+        <td>35</td>
+      </tr>
+      <tr class="table-active">
+        <td><strong>Common Meals/Snacks</strong></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>Rice</td>
+        <td>1 cup cooked</td>
+        <td>206</td>
+      </tr>
+      <tr>
+        <td>Potato</td>
+        <td>6 oz.</td>
+        <td>130</td>
+      </tr>
+      <tr>
+        <td>Hamburger</td>
+        <td>1 sandwich</td>
+        <td>250</td>
+      </tr>
+      <tr>
+        <td>Bread, white</td>
+        <td>1 slice (1 oz.)</td>
+        <td>75</td>
+      </tr>
+      <tr>
+        <td>Butter</td>
+        <td>1 tablespoon</td>
+        <td>102</td>
+      </tr>
+      <tr>
+        <td>Cheeseburger</td>
+        <td>1 sandwich</td>
+        <td>285</td>
+      </tr>
+  
+    </tbody>
+  </table>
+  <p> * 1 cup = ~250 milliliters, 1 table spoon = 14.2 gram</p>
+</article>
 
 <footer class="footer-section">
   <div class="footer-box container">
