@@ -12,6 +12,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.10.5/font/bootstrap-icons.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HealtyU</title>
     <link href="css/style.css" rel="stylesheet" />
@@ -22,6 +23,22 @@
     <script type="module" src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-app-compat.js"></script>
     <script type="module" src="https://www.gstatic.com/firebasejs/10.12.1/firebase-firestore-compat.js"></script>
+
+  <!--   <style> -->
+		<!-- #translateBtn { -->
+		<!--       position: fixed; -->
+		<!--       bottom: 20px; -->
+		<!--       right: 20px; -->
+		<!--       background-color: #007bff; -->
+		<!--       color: white; -->
+		<!--       border: none; -->
+		<!--       border-radius: 50%; -->
+		<!--       padding: 15px; -->
+		<!--       box-shadow: 0 2px 5px rgba(0,0,0,0.3); -->
+		<!--       cursor: pointer; -->
+		<!--       z-index: 1000; -->
+		<!--     } -->
+  <!--   </style> -->
 
   </head>
   <body>
@@ -360,6 +377,10 @@
         <ion-icon class="history-icon" name="reload-circle-outline"></ion-icon>
       </div>
 
+  	<!-- <button id="translateBtn"> -->
+   <!--  	<i class="bi bi-translate"></i> -->
+  	<!-- </button> -->
+
     <script>
       document.body.style.zoom = "0.9";
      // Function to close the popup
@@ -375,5 +396,41 @@
       nomodule
       src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
     ></script>
+
+<!--      <script> -->
+<!--     async function translateText(text) { -->
+<!--       const url = 'https://cors-anywhere.herokuapp.com/https://libretranslate.de/translate'; -->
+<!--  -->
+<!--       const response = await fetch(url, { -->
+<!--         method: 'POST', -->
+<!--         headers: { -->
+<!--           'Content-Type': 'application/json', -->
+<!--           'Accept': 'application/json' -->
+<!--         }, -->
+<!--         body: JSON.stringify({ -->
+<!--           q: text, -->
+<!--           source: 'id', -->
+<!--           target: 'en', -->
+<!--           format: 'text' -->
+<!--         }) -->
+<!--       }); -->
+<!--  -->
+<!--       const data = await response.json(); -->
+<!--       return data.translatedText; -->
+<!--     } -->
+<!--  -->
+<!--     async function translatePage() { -->
+<!--       const elementsToTranslate = document.querySelectorAll('li'); // Add more tags as needed -->
+<!--       for (let element of elementsToTranslate) { -->
+<!--         if (element.innerText.trim().length > 0) { -->
+<!--           const originalText = element.innerText; -->
+<!--           const translatedText = await translateText(originalText); -->
+<!--           element.innerText = translatedText; -->
+<!--         } -->
+<!--       } -->
+<!--     } -->
+<!--  -->
+<!--     document.getElementById('translateBtn').addEventListener('click', translatePage); -->
+  <!-- </script> -->
   </body>
 </html>
