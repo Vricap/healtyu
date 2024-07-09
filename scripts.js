@@ -135,10 +135,10 @@ onAuthStateChanged(auth, user => {
       div.className = "history-item";
       div.innerHTML = `
       <h2 style="text-transform: uppercase;">${docData.layanan}</h2>
-      <p>Atas Nama: ${docData.nama_pertama} ${docData.nama_terakhir}</p>
-      <p>Nomor Kartu: ${docData.nomor_kartu}</p>
-      <p>Tanggal Pembelian: ${docData.tanggal_dipesan}</p>
-      <p>Harga: ${docData.harga}</p>
+      <p>Name: ${docData.nama_pertama} ${docData.nama_terakhir}</p>
+      <p>Card Number: ${docData.nomor_kartu}</p>
+      <p>Purchase Date: ${docData.tanggal_dipesan}</p>
+      <p>Price: ${docData.harga}</p>
       <p>Token: ${docData.token}</p>`;
 
       historyContainer.appendChild(div);
